@@ -10,25 +10,20 @@
 
 
 
+import numpy as np
 def ThreeNumberSum(array,targetsum):
-    for i in range(0,len(array)):
-        
-        firstNum=array[i]
-        for j in range(i+1,len(array)):
-            secondNum=array[j]
-            for k in range(i+2,len(array)):
-                ThirdNum=array[k]
-                if firstNum+secondNum+ThirdNum==targetsum:
-                    a1=min(firstNum,secondNum,ThirdNum)
-                    a3=max(firstNum,secondNum,ThirdNum)
-                    a2=(firstNum+secondNum+ThirdNum)-a1-a3
-                    return [a1,a2,a3]
-
-
-                    
-    return[]
-
+    List_num=[]
+    for i in range(0,len(array)-2):
+        for j in range(i+1,len(array)-1):
+            for k in range(j+1,len(array)):
+                if array[i]+array[j]+array[k]==targetsum:
+                    List_num.extend([array[i],array[j],array[k]])
+                    break
+    List_num1=np.array(List_num).reshape(int(len(List_num)/3),3)
+    List_num1.sort()
+    
+    return List_num1
 if __name__ == '__main__':
-  array =  [1,2,3,-3,-2,-1,3,4,5,6]
+  array =  [12,2,1,3,-6,5,-8,6]
   targetSum = 0
   print(ThreeNumberSum(array, targetSum))
