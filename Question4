@@ -1,0 +1,24 @@
+#Four Number Sum
+
+#Write a function that takes in a non-empty array of distinct integers and an integer representing a target sum.
+#The function should find all quadruplets in the array that sum up to the largest sum and return a two dimensional array of all these
+#quadruplets in no particular order.
+
+import numpy as np 
+def fourNumberSum(array,TargetSum):
+    ans=[]
+    n=len(array)
+    for i in range(0,n-3):
+        for j in range(i+1,n-2):
+            for k in range(j+1,n-1):
+                for s in range(k+1,n):
+                    if array[i]+array[j]+array[k]+array[s]==TargetSum:
+                        ans.extend([array[i],array[j],array[k],array[s]])
+                        break
+    ans1=np.array(ans).reshape(2,int(len(ans)/2))
+  
+    return ans1
+if __name__=='__main__':
+    array = [7,6,4,-1,1,2]
+    TargetSum = 16
+    print(fourNumberSum(array,TargetSum))
