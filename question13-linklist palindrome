@@ -1,0 +1,54 @@
+from collections import deque
+ 
+ 
+# Data Structure to store a linked list node
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+ 
+ 
+# Function to determine if a given linked list is palindrome or not
+def isPalindrome(head):
+ 
+    # construct an empty stack
+    s = deque()
+ 
+    # push all elements of the linked list into the stack
+    node = head
+    while node:
+        s.append(node.data)
+        node = node.next
+ 
+    # traverse the linked list again
+    node = head
+    while node:
+ 
+        # pop the top element from the stack
+        top = s.pop()
+ 
+        # compare the popped element with current node's data
+        # return false if mismatch happens
+        if top != node.data:
+            return False
+ 
+        # advance to the next node
+        node = node.next
+ 
+    # we reach here only when the linked list is palindrome
+    return True
+ 
+ 
+if __name__ == '__main__':
+ 
+    head = Node('r')
+    head.next = Node('a')
+    head.next.next = Node('d')
+    head.next.next.next = Node('a')
+    head.next.next.next.next = Node('r')
+ 
+    if isPalindrome(head):
+        print("Linked List is a palindrome.")
+    else:
+        print("Linked List is not a palindrome.")
+ 
