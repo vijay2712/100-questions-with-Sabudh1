@@ -1,0 +1,26 @@
+Given 2 sets of integers,  
+M and N, print their symmetric difference in ascending order. 
+The term symmetric difference indicates those values that exist in either  M or N  but do not exist in both.
+
+Input Format
+The first line of input contains an integer, M.
+The second line contains M space-separated integers.
+The third line contains an integer, N.
+The fourth line contains N space-separated integers.
+
+Output Format
+Output the symmetric difference integers in ascending order, one per line.
+
+n = map(int, input().split())
+M = list(map(int, input().split()))
+n = map(int, input().split())
+N = list(map(int, input().split())) 
+new_list = []
+def Comparelist():
+    for i in range(0,len(M)):
+        if M[i]!=N[i]:
+            new_list.append(M[i])
+            new_list.append(N[i])
+            new_list.sort()
+    print(*new_list,sep="\n")
+Comparelist()
