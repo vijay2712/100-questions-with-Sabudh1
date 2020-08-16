@@ -1,0 +1,19 @@
+#Write a Python program of recursion list sum.
+#Input: grid = [1, 2, [3,4],[5,6]]
+#Output: 21
+
+
+
+def recursive_sum(input_matrix):
+    
+    res = 0
+    for elem in input_matrix:
+        if type(elem) == type([]):
+            res = res + recursive_sum(elem)
+        else:
+            res = res + elem
+    return res
+
+if __name__ == "__main__":
+  input_matrix = [1, 2, [3,4],[5,6]]
+  print(recursive_sum(input_matrix))
