@@ -1,0 +1,84 @@
+"""
+
+
+
+Question: Power Set
+
+
+
+Power Set in Lexicographic order. This problem is about generating Power set in lexicographical order.
+
+
+
+Sample Input 1
+
+abc
+
+
+
+Sample Output 1
+
+["a","ab","abc","ac","b","bc","c"]
+
+
+
+Sample Input 2
+
+banana
+
+
+
+Sample Output 2
+
+['a', 'aa', 'aaa', 'aaab', 'aaabn', 'aaabnn', 'aaan', 
+
+ 'aaann', 'aab','aabn', 'aabnn', 'aan', 'aann', 'ab', 
+
+ 'abn', 'abnn', 'an', 'ann', 'b', 'bn', 'bnn', 'n', 'nn']
+
+
+
+"""
+
+
+
+from itertools import combinations
+
+  
+
+def power_set(input_string):
+
+  #write your code here
+
+  
+
+  n = len(input_string)
+
+  input_string = sorted(input_string)
+
+  powerSet = set()
+
+  
+
+  for i in range(n):
+
+    temp = combinations(input_string,i+1)
+
+    powerSet = powerSet.union(set(map(''.join, temp)))
+
+    
+
+  powerSet = sorted(powerSet)
+
+  return powerSet
+
+  
+
+if __name__ == "__main__":
+
+  input_string = "banana"
+
+  print(power_set(input_string))
+
+
+
